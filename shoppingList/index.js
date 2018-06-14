@@ -13,7 +13,7 @@ Hint: you may find it helpful to read up on and use the following jQuery methods
 */
 
 
-$(function () {
+(function () {
 
   //Add item to shopping list
   (function addItem() {
@@ -33,9 +33,10 @@ $(function () {
     });
   })();
 
-  (function toggleItem() {
+  (function () {
     $(".shopping-list").on('click', '.shopping-item-toggle', function (e) {
       $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
+      console.log('clicked!');
     });
   })();
 
@@ -45,4 +46,4 @@ $(function () {
       $(this).closest('li').remove();
     });
   })();
-});
+})();

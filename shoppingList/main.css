@@ -1,34 +1,47 @@
-'use strict'
-
 * {
-    box-sizing: border-box;
-  }
-  
-  main {
-    min-width: 250px;
-    padding: 30px;
-  }
-  
-  .hero {
-    height: 200px;
-    margin-bottom: 20px;
-  }
-  
-  .hero img {
-    height: 100%
-  }
-  
-  
-  .thumbnail {
-    display: inline-block;
-    cursor: pointer;
-    height: 60px;
-  }
-  
-  a.thumbnail:hover {
-    box-shadow: 5px 5px 5px gray;
-  }
-  
-  .thumbnail img {
-    max-height: 100%;
-  }
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+button, input[type="text"] {
+  padding: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#shopping-list-item {
+  width: 250px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.shopping-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.shopping-list > li {
+  margin-bottom: 20px;
+  border: 1px solid grey;
+  padding: 20px;
+}
+
+.shopping-item {
+  display: block;
+  color: grey;
+  font-style: italic;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.shopping-item__checked {
+  text-decoration: line-through;
+}
