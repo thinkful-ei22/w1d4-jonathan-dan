@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*Requirements
 In terms of user experience, your shopping list app must allow users to:
@@ -12,13 +12,17 @@ Additionally:
 Hint: you may find it helpful to read up on and use the following jQuery methods: .submit(), preventDefault(), toggleClass(), and closest().
 */
 
-$(function() {
-  $('#js-shopping-list-form').submit(event => {
-  event.preventDefault();
-  const userText = $('.js-shopping-list-entry').val();
-  $('.js-shopping-list-entry').val('');
-    $('ul').append(
-      `<li><span class="shopping-item">${userText}</span>
+
+$(function () {
+
+  //Add item to shopping list
+  (function addItem() {
+    $('#js-shopping-list-form').submit(event => {
+      event.preventDefault();
+      const userText = $('.js-shopping-list-entry').val();
+      $('.js-shopping-list-entry').val('');
+      $('ul').append(
+        `<li><span class="shopping-item">${userText}</span>
         <div class="shopping-item-controls">
        <button class="shopping-item-toggle">
         <span class="button-label">check</span>
@@ -26,5 +30,19 @@ $(function() {
        <button class="shopping-item-delete">
         <span class="button-label">delete</span>
        </button></li>`);
-  });
+    });
+  })();
+
+  (function toggleItem() {
+    $(".shopping-list").on('click', '.shopping-item-toggle', function (e) {
+      $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
+    });
+  })();
+
+  //delete button should remove the <li>
+  (function removeItem() {
+    $(".shopping-list").on('click', '.shopping-item-delete', function (e) {
+      $(this).closest('li').remove();
+    });
+  })();
 });
